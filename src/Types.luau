@@ -50,6 +50,9 @@ export type PlaggerModule = {
 
 	New: 
 		(TaggedOnly: boolean?, LocalOnly: boolean?, InActor: boolean?) -> Plagger,
+	new: 
+		(TaggedOnly: boolean?, LocalOnly: boolean?, InActor: boolean?) -> Plagger,
+		
 	Destroy: 
 		(self: Plagger) -> (),
 

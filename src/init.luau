@@ -40,12 +40,12 @@ local CollectionService, Players = game:GetService('CollectionService'), game:Ge
 
 
 -- This will inject all types into this context.
-local TypeDefinitions = require(script.TypeDefinitions)
+local TypeDefinitions = require(script.Types)
 
 -- Insert the Object Types:
-type PlaggerMetaData = TypeDefinitions.PlaggerMetaData
-type PlaggerModule   = typeof(PlaggerModule)
-type Plagger         = TypeDefinitions.Plagger
+export type PlaggerMetaData = TypeDefinitions.PlaggerMetaData
+export type PlaggerModule   = typeof(PlaggerModule)
+export type Plagger         = TypeDefinitions.Plagger
 
 --===========================================================================================================================>
 
