@@ -323,8 +323,8 @@ function PlaggerModule._RemovePlayer(self: Plagger, Player: Player)
 		--==============================================================================================>
 		-- Remove the Tag from the Player if it has it:
 		if Player:HasTag(self._Tags.Player) == true then Player:RemoveTag(self._Tags.Player) end
-		-- Destroy the Player Object and Remove it from the BaseTrove:
-		self._BaseTrove:Remove(self._Players[Player])
+		-- Destroy the Player Object:
+		self._Players[Player]:Destroy()
 		-- Remove the Reference to the Player in the Table:
 		self._Players[Player] = nil
 		--==============================================================================================>
