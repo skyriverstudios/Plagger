@@ -110,7 +110,7 @@ function PlaggerModule.New(TaggedOnly: boolean?, LocalOnly: boolean?, InActor: b
 	PlaggerData:_Initialize()
 
 	-- Return the FROZEN Object:
-	return table.freeze(PlaggerData)
+	return table.freeze(PlaggerData) :: Plagger
 
 	--=======================================================================================================>
 end
