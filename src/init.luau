@@ -457,6 +457,12 @@ function PlaggerModule.__newindex(self: Plagger, Index: string, Value: any)
 	error(`{Index} could not be set on the Plagger (PlayerHandler)`)
 	--=======================================================================================================>
 end
+
+--===========================================================================================================================>
+
+-- Create a lowercase reference to the New Constructor Method for the weirdos using anything other than PascalCase..
+PlaggerModule.new = PlaggerModule.New
+
 --===========================================================================================================================>
 
 -- Return the Module Object:
