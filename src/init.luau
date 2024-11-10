@@ -141,7 +141,7 @@ function PlaggerModule.Destroy(self: Plagger)
 	end
 
 	-- Set the Metatable to nil
-	setmetatable(self :: any, nil)	
+	--setmetatable(self :: any, nil)	
 
 	--=======================================================================================================>
 end
@@ -160,8 +160,8 @@ function PlaggerModule._SetObjects(self: Plagger)
 	-- Get all the Current Players in Game:
 	-- If Tagged is true, then get the players from the Player Tag, else get the Players from the Players Service:
 	local PlayersGot: {Player} = if self._TaggedOnly then
-		Players:GetPlayers(CollectionService:GetTagged(self._Tags.Player)) else Players:GetPlayers()
-
+		CollectionService:GetTagged(self._Tags.Player) else Players:GetPlayers()
+	
 	-- Loop through all the Current In Game Players and Add them to the Data Object:
 	for Index: number, Player: Player in ipairs(PlayersGot) do self:_AddPlayer(Player) end
 
@@ -176,7 +176,7 @@ function PlaggerModule._SetObjects(self: Plagger)
 		-- Get all the Current Characters in Game:
 		-- Get the Character from the Character Tag:
 		local CharactersGot: {Model} = 
-			Players:GetPlayers(CollectionService:GetTagged(if self._LocalOnly == true then self._Tags.LocalCharacter else self._Tags.ServerCharacter))
+			CollectionService:GetTagged(if self._LocalOnly == true then self._Tags.LocalCharacter else self._Tags.ServerCharacter)
 
 		-- Loop through all the Current In Game Characters and Add them to the Data Object:
 		for Index: number, Character: Model in ipairs(CharactersGot) do 			
@@ -343,7 +343,6 @@ end
 -- Method to Add a tag to the Player's Character:
 function PlaggerModule._AddCharacter(self: Plagger, Player: Player, Character: Model?)
 	--=======================================================================================================>
-
 	-- If the Character passed is nil then return:
 	if Character == nil then return end
 
@@ -358,10 +357,9 @@ function PlaggerModule._AddCharacter(self: Plagger, Player: Player, Character: M
 			if Character:HasTag(self._Tags.LocalCharacter) == false then Character:AddTag(self._Tags.LocalCharacter) end
 		end
 	end
-
+	
 	-- Insert the Character into the CharacterList:
 	self._CharacterList[Player.Name] = Character
-
 	--=======================================================================================================>
 end
 
